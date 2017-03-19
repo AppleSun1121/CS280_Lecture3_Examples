@@ -29,7 +29,7 @@ namespace Example03
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            RederScreen();
+            RenderScreen();
         }
 
         private void orderButton_Click(object sender, EventArgs e)
@@ -37,22 +37,22 @@ namespace Example03
             this.order = new Order();
 
             this.order.Customer = this.customer;
-            RederScreen();
+            RenderScreen();
         }
 
         private void product1Bottom_Click(object sender, EventArgs e)
         {
             this.order.ProductList.Add(new Product() { Name = "豆漿", Price = 15 });
-            RederScreen();
+            RenderScreen();
         }
 
         private void product2Bottom_Click(object sender, EventArgs e)
         {
             this.order.ProductList.Add(new Product() { Name = "油條", Price = 10 });
-            RederScreen();
+            RenderScreen();
         }
 
-        private void RederScreen()
+        private void RenderScreen()
         {
             this.customerLabel.Text = this.customer.Name;
             this.orderButton.Text = "點餐";
@@ -80,14 +80,14 @@ namespace Example03
         {
             MessageBox.Show(string.Format("{0}, 結帳金額:{1}，謝謝惠顧 ", this.order.Customer.Name, this.order.GetTotal()));
             this.order = null;
-            RederScreen();
+            RenderScreen();
         }
 
         private void tableComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int SelectedIndex = tableComboBox.SelectedIndex;
             this.customer.Name = tableComboBox.Items[SelectedIndex].ToString() + "桌";
-            RederScreen();
+            RenderScreen();
         }
     }
 }
